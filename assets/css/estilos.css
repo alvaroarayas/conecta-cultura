@@ -1,95 +1,161 @@
-* {
+/* 1. Variables */
+:root {
+  --color-primario: #145da0;
+  --color-primario-oscuro: #0b3d68;
+  --color-secundario: #2a9d8f;
+  --color-acento: #f4a261;
+  --color-texto: #183044;
+  --color-texto-suave: #526575;
+  --color-fondo: #f4f7fa;
+  --color-superficie: #ffffff;
+  --color-borde: #c9d4de;
+  --fuente-base: Arial, Helvetica, sans-serif;
+  --radio: 0.75rem;
+  --sombra: 0 0.5rem 1.25rem rgb(20 48 68 / 12%);
+  --ancho-contenido: 72rem;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+/* 2. Base y tipografía */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #16324f;
-  background-color: #f4f8fb;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  font-family: var(--fuente-base);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-header,
-
-.mensaje-inicial{
-  font-size: 10;
-  font-family: Arial, sans-serif;
-  color: #db0a0a;
-}
-
-main,
-
-footer {
-  padding: 1.5rem;
-}
-
-header {
-  color: #ffffff;
-  background-color: #145da0;
-}
-
-button {
-  padding: 0.75rem 1rem;
-  color: #ffffff;
-  background-color: #2a7f62;
-  border: 0;
-  border-radius: 0.4rem;
-  cursor: pointer;
-}
-
-.cabecera-sitio,
-.menu,
-.grilla-tarjetas {
-  display: flex;
-  gap: 1rem;
-}
-
-.cabecera-sitio {
-  align-items: center;
-  justify-content: space-between;
-}
-
-.menu {
-  padding: 0;
-  list-style: none;
-}
-
-.marca,
-.menu a,
-.pie-sitio a {
-  color: inherit;
-}
-
-main {
-  max-width: 70rem;
-  margin-inline: auto;
-}
-
-.grilla-tarjetas {
-  flex-wrap: wrap;
-}
-
-.tarjeta {
-  flex: 1 1 18rem;
-  padding: 1rem;
-  background: #ffffff;
-}
-
-img {
+img,
+video {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
-.salto-contenido {
-  position: absolute;
-  left: -10000px;
+a {
+  color: var(--color-primario);
 }
 
-.salto-contenido:focus {
-  position: static;
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
+/* 3. Estructura */
+main {
+  width: min(100% - 2rem, var(--ancho-contenido));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
 
+section + section {
+  margin-top: 3rem;
+}
+
+/* 4. Navegación */
+.cabecera-sitio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem max(1rem, calc((100% - var(--ancho-contenido)) / 2));
+  color: #ffffff;
+  background: var(--color-primario-oscuro);
+}
+
+.marca {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  background: var(--color-primario);
+}
+
+/* 5. Componentes */
+.etiqueta {
+  margin-bottom: 0.25rem;
+  color: var(--color-secundario);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tarjeta,
+.mensaje-confirmacion,
+.formulario fieldset {
+  padding: 1.5rem;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.grilla-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.grilla-tarjetas .tarjeta {
+  flex: 1 1 18rem;
+}
+
+.boton,
+button {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  background: var(--color-primario);
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover,
+button:hover {
+  background: var(--color-primario-oscuro);
+}
+
+/* 6. Tablas y formularios */
 .tabla-contenedor {
   max-width: 100%;
   overflow-x: auto;
@@ -98,25 +164,24 @@ img {
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #ffffff;
+  background: var(--color-superficie);
 }
 
-caption {
+caption,
+th,
+td {
   padding: 0.75rem;
-  font-weight: bold;
   text-align: left;
 }
 
 th,
 td {
-  padding: 0.75rem;
-  border: 1px solid #b8c4cf;
-  text-align: left;
+  border: 1px solid var(--color-borde);
 }
 
 thead {
   color: #ffffff;
-  background-color: #145da0;
+  background: var(--color-primario);
 }
 
 .formulario {
@@ -128,8 +193,6 @@ thead {
 .formulario fieldset {
   display: grid;
   gap: 0.75rem;
-  padding: 1rem;
-  border: 1px solid #b8c4cf;
 }
 
 .formulario input,
@@ -137,10 +200,54 @@ thead {
 .formulario textarea {
   width: 100%;
   padding: 0.7rem;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--color-borde);
+  border-radius: 0.4rem;
   font: inherit;
 }
 
 .formulario input[type="radio"],
 .formulario input[type="checkbox"] {
   width: auto;
+}
+
+/* 7. Multimedia y utilidades */
+.salto-contenido {
+  position: absolute;
+  padding: 0.6rem 1rem;
+  color: #ffffff;
+  background: var(--color-primario-oscuro);
+  transform: translateY(-150%);
+}
+
+.salto-contenido:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 3px;
+}
+
+input:required,
+select:required,
+textarea:required {
+  border-left: 0.3rem solid var(--color-primario);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primario);
+}
+
+.pie-sitio {
+  padding: 1.5rem max(1rem, calc((100% - var(--ancho-contenido)) / 2));
+  color: #ffffff;
+  background: var(--color-texto);
+}
+
+.pie-sitio a {
+  color: #ffffff;
 }
