@@ -282,3 +282,52 @@ textarea:focus {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.destacado {
+  color: #8a4b08;
+  background-color: #fff3cd;
+  padding: 1rem;
+  border-left: 0.35rem solid #d97706;
+}
+
+.boton-menu {
+  display: inline-block;
+  padding: 0.65rem 0.85rem;
+  font-size: 1.5rem;
+  background-color: #096147;
+  border: 0.1rem solid #1f4b5b;
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu.menu-abierto {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .boton-menu {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.aviso-cupos {
+  color: #8a4b08;
+  font-weight: 700;
+}
+
+.actividad-completa {
+  color: #b42318;
+  font-weight: 700;
+}
+

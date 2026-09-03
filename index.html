@@ -11,22 +11,30 @@
   <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
   <header class="cabecera-sitio">
     <a class="marca" href="index.html">Conecta Cultura</a>
-    <nav aria-label="Navegación principal">
-      <ul class="menu">
-        <li><a href="index.html" aria-current="page">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="agenda.html">Agenda</a></li>
-        <li><a href="participar.html">Participar</a></li>
-        <li><a href="recursos.html">Recursos</a></li>
-      </ul>
+    <button
+      id="boton-menu"
+      class="boton-menu"
+      type="button"
+      aria-label="Abrir o cerrar menú principal"
+      aria-controls="menu-principal"
+      aria-expanded="false">
+      <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="participar.html">Participar</a>
     </nav>
+
   </header>
 
   <main id="contenido-principal">
     <section class="presentacion">
       <p class="etiqueta">Aprendizaje y comunidad</p>
-      <h1>Experiencias que conectan personas</h1>
+      <h1 id="titulo-cartelera">Agenda cultural</h1>
+      <button id="boton-destacar" type="button">Destacar título</button>
       <p>Descubre talleres locales de cultura, tecnología y bienestar.</p>
       <a class="boton" href="noticias.html">Explorar novedades</a>
     </section>
@@ -51,6 +59,12 @@
       </div>
     </section>
 
+    <button id="mostrar-todas" type="button">Todas</button>
+    <button id="mostrar-disponibles" type="button">
+      Con cupos
+    </button>
+    <section id="cartelera" class="rejilla-tarjetas"></section>
+
     <aside class="aviso" aria-labelledby="titulo-aviso">
       <h2 id="titulo-aviso">¿Quieres proponer una actividad?</h2>
       <p>Pronto habilitaremos un formulario para organizaciones locales.</p>
@@ -63,5 +77,6 @@
     <p><small>Proyecto académico · Desarrollo FullStack II</small></p>
   </footer>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/menu.js"></script>
 </body>
 </html>
