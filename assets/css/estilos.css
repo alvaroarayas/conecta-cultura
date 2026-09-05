@@ -331,3 +331,16 @@ textarea:focus {
   font-weight: 700;
 }
 
+.mensaje-error {
+  display: block;
+  color: #b42318;
+  min-height: 1.25rem;
+}
+
+.campo-invalido {
+  border: 0.15rem solid #b42318;
+}
+
+.campo-invalido:focus {
+  outline: 0.2rem solid #f4a6a0;
+}
